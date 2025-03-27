@@ -1,0 +1,242 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ff1414;
+    --nav-bg: #1a1a1a;
+    --accent-color: #ff0000;
+    --shadow-color: rgba(255, 20, 20, 0.562);
+}
+
+[data-theme="light"] {
+    --bg-color: #ffffff;
+    --text-color: #2b2b2b;
+    --nav-bg: #ffffffc0;
+    --accent-color: #007fff;
+    --shadow-color: rgba(0, 0, 0, 0.719);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Impact, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.navbar {
+    background: linear-gradient(to bottom, var(--nav-bg), transparent);
+    backdrop-filter: blur(5px);
+    padding: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    box-shadow: 0 2px 15px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--shadow-color);
+    animation: neonPulse 1.5s infinite alternate;
+}
+
+.controls-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 100;
+}
+
+#theme-toggle {
+    padding: 10px;
+    border: none;
+    border-radius: 40%;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    transition: all 0.3s ease;
+    
+}
+
+#theme-toggle:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+
+#music-toggle {
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: var(--nav-bg);
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    transition: all 0.3s ease;
+    font-family: Impact, sans-serif;
+}
+
+#music-toggle:hover {
+    opacity: 0.9;
+    box-shadow: 0 0 15px var(--shadow-color);
+}
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    height: 70%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    border: 2px solid var(--accent-color);
+    margin: 0 auto;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100% ;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.95);
+    z-index: 1000;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    display: block;
+    animation: zoom 0.3s ease-in-out;
+}
+
+@keyframes zoom {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+
+.audio-player {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--nav-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: 40%;
+    z-index: 99;
+}
+
+.progress-bar {
+    height: 4px;
+    background: #333;
+    margin: 10px 0;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.progress {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0;
+    transition: width 0.1s linear;
+}
+
+#modal-content{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*Boton de rueda*/
+.loader {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .wheel {
+    fill: rgb(128, 128, 128);
+    font-size: 100px;
+    width: 50px;
+    height: 50px;
+    border-radius: 6em;
+    text-align: center;
+    animation: rolling 1s linear infinite;
+  }
+  
+  #rim {
+    fill: rgb(126, 126, 126);
+  }
+  
+  #tire {
+    fill: rgb(55, 55, 55);
+  }
+  
+  .road {
+    position: absolute;
+    margin-top: -4px;
+    width: 50%;
+    height: 10px;
+    border-radius: 5em;
+    background-color: rgb(55, 55, 55);
+    animation: road-move 2s linear infinite;
+  }
+  
+  @keyframes rolling {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  
+  @keyframes road-move {
+    from {
+      transform: translateX(-140%);
+    }
+  
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  
+  
